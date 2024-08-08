@@ -10,8 +10,8 @@ export class CockpitComponent {
   newServerName = '';
   newServerContent = '';
 
-  onAddServer() {
-        // this.serverElements.push({
+  onAddServer(tempvar?:'') {
+    console.log('nameField => ', tempvar)
       this.serverElement.emit({
       type: 'server',
       name: this.newServerName,
@@ -20,7 +20,6 @@ export class CockpitComponent {
   }
 
   onAddBlueprint() {
-        // this.serverElements.push({
       this.serverElement.emit({
       type: 'blueprint',
       name: this.newServerName,
