@@ -9,5 +9,8 @@ export class AppComponent {
   serverElements = [
     {type: 'server', name: 'node-express.js', content:'furniture store'}
   ];
-  
+
+  onAddServer($event: any) {
+    this.serverElements.push($event)
+  } 
 }
