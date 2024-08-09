@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -9,9 +9,11 @@ export class CockpitComponent {
   @Output('addtoServer') serverElement = new EventEmitter();
   newServerName = '';
   newServerContent = '';
+  @ViewChild('nameField') namefield;
 
   onAddServer(tempvar?:'') {
-    console.log('nameField => ', tempvar)
+    console.log('nameField type => ', this.namefield)
+    console.log('nameField => ', this.namefield.nativeElement.value)
       this.serverElement.emit({
       type: 'server',
       name: this.newServerName,
@@ -25,5 +27,9 @@ export class CockpitComponent {
       name: this.newServerName,
       content: this.newServerContent
     });
+  }
+
+  doSomething(){
+    console.log('hello from cockpit...');
   }
 }
